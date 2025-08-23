@@ -4,6 +4,7 @@ import { Footer } from '@/components/layout/Footer';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { ServicesSection } from '@/components/sections/ServicesSection';
 import { CalculatorSection } from '@/components/sections/CalculatorSection';
+import { FAQSection } from '@/components/sections/FAQSection';
 import { ContactsSection } from '@/components/sections/ContactsSection';
 import { TariffModal } from '@/components/modals/TariffModal';
 import { russianCities, sverdlovskRegion, tyumenRegion, chelyabinskRegion, permRegion, liftingServices } from '@/data/priceData';
@@ -168,6 +169,8 @@ function Index() {
         setCalculator={setCalculator}
         onCalculate={calculatePrice}
       />
+
+      <FAQSection />
 
       <ContactsSection />
 

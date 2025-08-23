@@ -23,6 +23,7 @@ export function Header() {
           <nav className="hidden md:flex space-x-6 lg:space-x-10">
             <a href="#services" className="text-secondary-700 hover:text-primary-600 transition-colors font-semibold text-base lg:text-lg">Услуги</a>
             <a href="#calculator" className="text-secondary-700 hover:text-primary-600 transition-colors font-semibold text-base lg:text-lg">Калькулятор</a>
+            <a href="#faq" className="text-secondary-700 hover:text-primary-600 transition-colors font-semibold text-base lg:text-lg">FAQ</a>
             <a href="#contacts" className="text-secondary-700 hover:text-primary-600 transition-colors font-semibold text-base lg:text-lg">Контакты</a>
           </nav>
 
@@ -50,6 +51,13 @@ export function Header() {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Калькулятор
+              </a>
+              <a 
+                href="#faq" 
+                className="text-secondary-700 hover:text-primary-600 transition-colors font-semibold text-lg"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                FAQ
               </a>
               <a 
                 href="#contacts" 
