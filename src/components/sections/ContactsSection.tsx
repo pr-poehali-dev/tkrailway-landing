@@ -21,10 +21,8 @@ export function ContactsSection() {
           {/* AI Agent Widget */}
           <Card className="p-8">
             <CardHeader className="px-0 pt-0">
-              <CardTitle className="text-xl text-[#374151]">ИИ помощник</CardTitle>
-              <p className="text-sm text-gray-600 mt-2">
-                Задайте вопрос нашему ИИ агенту о доставке и получите мгновенный ответ
-              </p>
+              <CardTitle className="text-xl text-[#374151]"></CardTitle>
+              <p className="text-sm text-gray-600 mt-2 font-semibold">Задайте вопрос о доставке или сделаю расчет прямо .</p>
             </CardHeader>
             <CardContent className="px-0">
               <div className="w-full h-96 rounded-lg overflow-hidden border">
