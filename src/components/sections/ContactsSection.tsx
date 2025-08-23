@@ -27,30 +27,14 @@ export function ContactsSection() {
               </p>
             </CardHeader>
             <CardContent className="px-0">
-              <div 
-                id="ai-widget-container" 
-                className="min-h-[400px] w-full bg-gray-50 rounded-lg flex items-center justify-center"
-              >
-                <div className="text-center">
-                  <div className="animate-pulse mb-4">
-                    <div className="w-12 h-12 bg-blue-200 rounded-full mx-auto mb-3"></div>
-                    <div className="h-4 bg-blue-200 rounded w-32 mx-auto"></div>
-                  </div>
-                  <p className="text-sm text-gray-500">Загружается ИИ помощник...</p>
-                </div>
+              <div className="w-full h-96 rounded-lg overflow-hidden border">
+                <iframe 
+                  allow="microphone;autoplay"
+                  style={{ width: '100%', height: '100%' }}
+                  src="https://functions.pro-talk.ru/api/v1.0/chatgpt_widget_dialog_api?record_id=recw5raC8WUIi7BSO&promt_id=33318&lang=ru&fullscreen=0&voice=1&file=1&circle=1"
+                  title="ИИ помощник"
+                />
               </div>
-              <script
-                dangerouslySetInnerHTML={{
-                  __html: `
-                    !function(){
-                        const b=document.createElement("script");
-                        b.src="https://functions.pro-talk.ru/api/v1.0/get_dialog_ai_widget_api?record_id=recw5raC8WUIi7BSO&promt_id=33318&lang=ru&fullscreen=0&voice=1&file=1&circle=1";
-                        b.setAttribute("allow","autoplay");
-                        document.head.appendChild(b);
-                    }();
-                  `
-                }}
-              />
             </CardContent>
           </Card>
           
