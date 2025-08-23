@@ -59,44 +59,71 @@ function Index() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="border-b bg-white sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4">
+      <header className="border-b bg-white/95 backdrop-blur-md sticky top-0 z-50 shadow-soft">
+        <div className="container mx-auto px-4 py-5">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <Icon name="Truck" size={32} className="text-[#1E40AF]" />
-              <h1 className="text-2xl font-bold text-[#1E40AF]">ТК РЕИЛВЕЙ</h1>
+            <div className="flex items-center gap-3">
+              <div className="p-2 bg-primary-100 rounded-xl">
+                <Icon name="Truck" size={28} className="text-primary-600" />
+              </div>
+              <h1 className="text-2xl font-black text-primary-800">ТК РЕИЛВЕЙ</h1>
             </div>
-            <nav className="hidden md:flex space-x-8">
-              <a href="#services" className="text-[#374151] hover:text-[#1E40AF] transition-colors font-medium">Услуги</a>
-              <a href="#calculator" className="text-[#374151] hover:text-[#1E40AF] transition-colors font-medium">Тарифы</a>
-              <a href="#contacts" className="text-[#374151] hover:text-[#1E40AF] transition-colors font-medium">Контакты</a>
+            <nav className="hidden md:flex space-x-10">
+              <a href="#services" className="text-secondary-700 hover:text-primary-600 transition-colors font-semibold text-lg">Услуги</a>
+              <a href="#calculator" className="text-secondary-700 hover:text-primary-600 transition-colors font-semibold text-lg">Тарифы</a>
+              <a href="#contacts" className="text-secondary-700 hover:text-primary-600 transition-colors font-semibold text-lg">Контакты</a>
             </nav>
           </div>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="py-20 px-4 bg-gradient-to-br from-[#1E40AF] to-[#3B82F6] relative overflow-hidden" itemScope itemType="https://schema.org/Organization">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-transparent"></div>
+      <section className="py-24 px-4 bg-gradient-to-br from-primary-800 via-primary-700 to-primary-600 relative overflow-hidden animate-fade-in" itemScope itemType="https://schema.org/Organization">
+        <div className="absolute inset-0 bg-gradient-to-b from-black/10 to-black/30"></div>
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.03\"%3E%3Ccircle cx=\"30\" cy=\"30\" r=\"1.5\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
         <div className="container mx-auto text-center relative z-10">
-          <div className="max-w-4xl mx-auto">
-            <Badge className="mb-6 bg-white/20 text-white border-white/30 backdrop-blur-sm">
+          <div className="max-w-6xl mx-auto">
+            <Badge className="mb-8 bg-white/20 text-white border-white/30 backdrop-blur-sm px-6 py-2 text-lg font-medium">
               🚛 Доставка по всей России
             </Badge>
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight" itemProp="name">
-              Доставка грузов по России —
-              <span className="block text-[#F97316]">быстро, надежно, выгодно</span>
+            <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-8 leading-tight animate-slide-up" itemProp="name">
+              <span className="bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">Доставка грузов</span>
+              <span className="block text-accent-400 drop-shadow-lg">по России</span>
+              <span className="block text-2xl md:text-4xl font-medium mt-4 text-blue-100">быстро • надежно • выгодно</span>
             </h1>
-            <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
-              ЖД перевозки в багажных вагонах, автоперевозки по Уралу, услуги грузчиков. Прозрачные тарифы и расчет онлайн.
+            <p className="text-xl md:text-2xl text-blue-100 mb-12 max-w-4xl mx-auto leading-relaxed opacity-90">
+              Железнодорожные перевозки в багажных вагонах и автодоставка по Уралу.<br className="hidden md:block" /> 
+              Прозрачные тарифы, профессиональные грузчики, быстрый расчёт стоимости.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-[#DC2626] hover:bg-[#B91C1C] text-white px-8" onClick={() => scrollToSection('calculator')}>
-                Рассчитать стоимость за 1 минуту
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+              <Button size="lg" className="bg-accent-500 hover:bg-accent-600 text-white px-12 py-6 text-xl font-semibold rounded-xl shadow-strong hover:shadow-xl transition-all duration-300 transform hover:scale-105" onClick={() => scrollToSection('calculator')}>
+                <Icon name="Calculator" className="mr-3" size={24} />
+                Рассчитать стоимость
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-[#1E40AF]" onClick={() => scrollToSection('services')}>
-                Узнать подробнее
+              <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-primary-700 px-12 py-6 text-xl font-semibold rounded-xl backdrop-blur-sm bg-white/10 transition-all duration-300 transform hover:scale-105" onClick={() => scrollToSection('services')}>
+                <Icon name="Phone" className="mr-3" size={24} />
+                8-992-023-77-11
               </Button>
+            </div>
+            <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+              <div className="group">
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300 transform hover:scale-105">
+                  <div className="text-4xl font-black text-accent-400 mb-3 group-hover:text-accent-300 transition-colors">1090₽</div>
+                  <div className="text-blue-100 font-medium text-lg">за тонну ЖД до Москвы</div>
+                </div>
+              </div>
+              <div className="group">
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300 transform hover:scale-105">
+                  <div className="text-4xl font-black text-accent-400 mb-3 group-hover:text-accent-300 transition-colors">24 часа</div>
+                  <div className="text-blue-100 font-medium text-lg">среднее время доставки</div>
+                </div>
+              </div>
+              <div className="group">
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300 transform hover:scale-105">
+                  <div className="text-4xl font-black text-accent-400 mb-3 group-hover:text-accent-300 transition-colors">100%</div>
+                  <div className="text-blue-100 font-medium text-lg">гарантия сохранности</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -104,84 +131,114 @@ function Index() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 px-4 bg-gray-50" itemScope itemType="https://schema.org/Service">
+      <section id="services" className="py-24 px-4 bg-gradient-to-b from-gray-50 to-white" itemScope itemType="https://schema.org/Service">
         <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#374151] mb-4">
-              Наши услуги
+          <div className="text-center mb-20 animate-fade-in">
+            <div className="inline-block">
+              <span className="bg-primary-100 text-primary-700 px-4 py-2 rounded-full text-sm font-semibold mb-6 inline-block">ТРАНСПОРТНЫЕ РЕШЕНИЯ</span>
+            </div>
+            <h2 className="text-4xl md:text-6xl font-black text-primary-800 mb-8 leading-tight">
+              Наши <span className="text-accent-500">услуги</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl md:text-2xl text-secondary-600 max-w-4xl mx-auto leading-relaxed">
               Полный спектр транспортных услуг для вашего бизнеса
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="border-gray-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
-              <CardHeader className="text-center">
-                <div className="mx-auto mb-4 p-4 bg-[#1E40AF]/10 rounded-full w-16 h-16 flex items-center justify-center group-hover:bg-[#1E40AF] transition-colors">
-                  <Icon name="Train" size={32} className="text-[#1E40AF] group-hover:text-white" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate-slide-up">
+            <Card className="group p-8 hover:shadow-strong transition-all duration-500 border-0 bg-white rounded-2xl transform hover:scale-105 hover:-translate-y-2 shadow-soft">
+              <CardContent className="p-0">
+                <div className="flex items-center mb-6">
+                  <div className="p-4 bg-primary-100 rounded-2xl group-hover:bg-primary-500 group-hover:scale-110 transition-all duration-300">
+                    <Icon name="Train" size={36} className="text-primary-600 group-hover:text-white transition-colors" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-primary-800 ml-4 group-hover:text-primary-600 transition-colors">
+                    ЖД перевозки
+                  </h3>
                 </div>
-                <CardTitle className="text-xl font-bold text-[#374151]">
-                  ЖД Перевозки по РФ
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-gray-600 mb-4">
-                  Доставка в составе пассажирских поездов. Из Екатеринбурга в любой город России.
+                <p className="text-secondary-600 mb-6 text-lg leading-relaxed">
+                  Доставка грузов в багажных вагонах по всей России. Надёжно и экономично.
                 </p>
-                <ul className="text-sm text-gray-500 mb-6 space-y-1">
-                  <li>• По расписанию поездов</li>
-                  <li>• Максимальная сохранность</li>
-                  <li>• Широкая география</li>
+                <ul className="space-y-3 text-secondary-600 mb-6">
+                  <li className="flex items-center">
+                    <div className="w-2 h-2 bg-success-400 rounded-full mr-3"></div>
+                    До 200 тонн за рейс
+                  </li>
+                  <li className="flex items-center">
+                    <div className="w-2 h-2 bg-success-400 rounded-full mr-3"></div>
+                    Все регионы России
+                  </li>
+                  <li className="flex items-center">
+                    <div className="w-2 h-2 bg-success-400 rounded-full mr-3"></div>
+                    Страхование груза
+                  </li>
                 </ul>
-                <Button className="bg-[#1E40AF] hover:bg-[#1E3A8A] w-full" onClick={() => handleServiceTariff('railway')}>
+                <Button className="bg-primary-500 hover:bg-primary-600 w-full rounded-xl" onClick={() => handleServiceTariff('railway')}>
                   Узнать тарифы
                 </Button>
               </CardContent>
             </Card>
             
-            <Card className="border-gray-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
-              <CardHeader className="text-center">
-                <div className="mx-auto mb-4 p-4 bg-[#DC2626]/10 rounded-full w-16 h-16 flex items-center justify-center group-hover:bg-[#DC2626] transition-colors">
-                  <Icon name="Truck" size={32} className="text-[#DC2626] group-hover:text-white" />
+            <Card className="group p-8 hover:shadow-strong transition-all duration-500 border-0 bg-white rounded-2xl transform hover:scale-105 hover:-translate-y-2 shadow-soft">
+              <CardContent className="p-0">
+                <div className="flex items-center mb-6">
+                  <div className="p-4 bg-accent-100 rounded-2xl group-hover:bg-accent-500 group-hover:scale-110 transition-all duration-300">
+                    <Icon name="Truck" size={36} className="text-accent-600 group-hover:text-white transition-colors" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-primary-800 ml-4 group-hover:text-accent-600 transition-colors">
+                    Автоперевозки
+                  </h3>
                 </div>
-                <CardTitle className="text-xl font-bold text-[#374151]">
-                  Автоперевозки по Уралу
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-gray-600 mb-4">
-                  По Свердловской, Челябинской, Тюменской областям и Пермскому краю.
+                <p className="text-secondary-600 mb-6 text-lg leading-relaxed">
+                  Доставка по Уралу: Свердловская, Челябинская, Тюменская области, Пермский край.
                 </p>
-                <ul className="text-sm text-gray-500 mb-6 space-y-1">
-                  <li>• Быстрая доставка</li>
-                  <li>• Гибкие маршруты</li>
-                  <li>• Выгодные тарифы</li>
+                <ul className="space-y-3 text-secondary-600 mb-6">
+                  <li className="flex items-center">
+                    <div className="w-2 h-2 bg-success-400 rounded-full mr-3"></div>
+                    Быстрая доставка
+                  </li>
+                  <li className="flex items-center">
+                    <div className="w-2 h-2 bg-success-400 rounded-full mr-3"></div>
+                    Различные типы грузов
+                  </li>
+                  <li className="flex items-center">
+                    <div className="w-2 h-2 bg-success-400 rounded-full mr-3"></div>
+                    Доставка до двери
+                  </li>
                 </ul>
-                <Button className="bg-[#DC2626] hover:bg-[#B91C1C] w-full" onClick={() => handleServiceTariff('auto')}>
+                <Button className="bg-accent-500 hover:bg-accent-600 w-full rounded-xl" onClick={() => handleServiceTariff('auto')}>
                   Узнать тарифы
                 </Button>
               </CardContent>
             </Card>
             
-            <Card className="border-gray-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
-              <CardHeader className="text-center">
-                <div className="mx-auto mb-4 p-4 bg-[#F97316]/10 rounded-full w-16 h-16 flex items-center justify-center group-hover:bg-[#F97316] transition-colors">
-                  <Icon name="Users" size={32} className="text-[#F97316] group-hover:text-white" />
+            <Card className="group p-8 hover:shadow-strong transition-all duration-500 border-0 bg-white rounded-2xl transform hover:scale-105 hover:-translate-y-2 shadow-soft">
+              <CardContent className="p-0">
+                <div className="flex items-center mb-6">
+                  <div className="p-4 bg-secondary-100 rounded-2xl group-hover:bg-secondary-600 group-hover:scale-110 transition-all duration-300">
+                    <Icon name="Users" size={36} className="text-secondary-600 group-hover:text-white transition-colors" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-primary-800 ml-4 group-hover:text-secondary-600 transition-colors">
+                    Услуги грузчиков
+                  </h3>
                 </div>
-                <CardTitle className="text-xl font-bold text-[#374151]">
-                  Услуги грузчиков
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-gray-600 mb-4">
-                  Профессиональный подъем мебели и грузов на этажи, занос в частные дома.
+                <p className="text-secondary-600 mb-6 text-lg leading-relaxed">
+                  Подъём грузов на этажи, занос в частные дома. Профессиональные грузчики.
                 </p>
-                <ul className="text-sm text-gray-500 mb-6 space-y-1">
-                  <li>• Опытные грузчики</li>
-                  <li>• Подъем без лифта</li>
-                  <li>• Бережная работа</li>
+                <ul className="space-y-3 text-secondary-600 mb-6">
+                  <li className="flex items-center">
+                    <div className="w-2 h-2 bg-success-400 rounded-full mr-3"></div>
+                    Опытные специалисты
+                  </li>
+                  <li className="flex items-center">
+                    <div className="w-2 h-2 bg-success-400 rounded-full mr-3"></div>
+                    Бережное обращение
+                  </li>
+                  <li className="flex items-center">
+                    <div className="w-2 h-2 bg-success-400 rounded-full mr-3"></div>
+                    Доступные цены
+                  </li>
                 </ul>
-                <Button className="bg-[#F97316] hover:bg-[#EA580C] w-full" onClick={() => handleServiceTariff('loaders')}>
+                <Button className="bg-secondary-600 hover:bg-secondary-700 w-full rounded-xl" onClick={() => handleServiceTariff('loaders')}>
                   Узнать тарифы
                 </Button>
               </CardContent>
@@ -191,109 +248,114 @@ function Index() {
       </section>
 
       {/* Calculator Section */}
-      <section id="calculator" className="py-20 px-4 bg-white" role="main">
+      <section id="calculator" className="py-24 px-4 bg-gradient-to-b from-white to-primary-50/30" role="main">
         <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#374151] mb-4">
-              Рассчитайте стоимость доставки онлайн
+          <div className="text-center mb-20 animate-fade-in">
+            <div className="inline-block">
+              <span className="bg-accent-100 text-accent-700 px-4 py-2 rounded-full text-sm font-semibold mb-6 inline-block">РАСЧЁТ СТОИМОСТИ</span>
+            </div>
+            <h2 className="text-4xl md:text-6xl font-black text-primary-800 mb-8 leading-tight">
+              <span className="text-accent-500">Калькулятор</span> стоимости
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Получите точную стоимость за несколько кликов
+            <p className="text-xl md:text-2xl text-secondary-600 max-w-4xl mx-auto leading-relaxed">
+              Рассчитайте предварительную стоимость доставки вашего груза
             </p>
           </div>
           
-          <div className="max-w-2xl mx-auto">
-            <Card className="p-8">
-              <div className="grid gap-6">
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-[#374151] mb-2">Выберите услугу</label>
-                    <Select onValueChange={(value) => setCalculator(prev => ({ ...prev, service: value }))}>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Тип доставки" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="railway">ЖД Перевозка</SelectItem>
-                        <SelectItem value="auto">Автоперевозка</SelectItem>
-                        <SelectItem value="loaders">Грузчики</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-medium text-[#374151] mb-2">Куда доставить</label>
-                    <Select onValueChange={(value) => setCalculator(prev => ({ ...prev, destination: value }))}>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Город назначения" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {calculator.service === 'railway' && (
-                          <>
-                            <SelectItem value="Москва">Москва</SelectItem>
-                            <SelectItem value="СПб">Санкт-Петербург</SelectItem>
-                            <SelectItem value="Новосибирск">Новосибирск</SelectItem>
-                            <SelectItem value="Челябинск">Челябинск</SelectItem>
-                            <SelectItem value="Тюмень">Тюмень</SelectItem>
-                          </>
-                        )}
-                        {calculator.service === 'auto' && (
-                          <>
-                            <SelectItem value="Челябинск">Челябинск</SelectItem>
-                            <SelectItem value="Тюмень">Тюмень</SelectItem>
-                            <SelectItem value="Пермь">Пермь</SelectItem>
-                            <SelectItem value="Курган">Курган</SelectItem>
-                          </>
-                        )}
-                        {calculator.service === 'loaders' && (
-                          <SelectItem value="Екатеринбург">Екатеринбург</SelectItem>
-                        )}
-                      </SelectContent>
-                    </Select>
-                  </div>
+          <Card className="max-w-5xl mx-auto p-10 shadow-strong rounded-3xl bg-white/95 backdrop-blur-sm border-0 animate-slide-up">
+            <CardContent className="space-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-3">
+                  <label className="block text-lg font-semibold text-primary-800 mb-3">Выберите услугу</label>
+                  <Select onValueChange={(value) => setCalculator(prev => ({ ...prev, service: value }))}>
+                    <SelectTrigger className="h-14 text-lg rounded-xl border-2 border-primary-200 focus:border-primary-500 bg-white">
+                      <SelectValue placeholder="Тип доставки" />
+                    </SelectTrigger>
+                    <SelectContent className="rounded-xl">
+                      <SelectItem value="railway">ЖД Перевозка</SelectItem>
+                      <SelectItem value="auto">Автоперевозка</SelectItem>
+                      <SelectItem value="loaders">Грузчики</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </div>
                 
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-[#374151] mb-2">Вес груза (кг)</label>
-                    <Input 
-                      type="number" 
-                      placeholder="100"
-                      value={calculator.weight}
-                      onChange={(e) => setCalculator(prev => ({ ...prev, weight: e.target.value }))}
-                    />
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-medium text-[#374151] mb-2">Объем груза (м³)</label>
-                    <Input 
-                      type="number" 
-                      placeholder="1.5"
-                      value={calculator.volume}
-                      onChange={(e) => setCalculator(prev => ({ ...prev, volume: e.target.value }))}
-                    />
-                  </div>
+                <div className="space-y-3">
+                  <label className="block text-lg font-semibold text-primary-800 mb-3">Куда доставить</label>
+                  <Select onValueChange={(value) => setCalculator(prev => ({ ...prev, destination: value }))}>
+                    <SelectTrigger className="h-14 text-lg rounded-xl border-2 border-primary-200 focus:border-primary-500 bg-white">
+                      <SelectValue placeholder="Город назначения" />
+                    </SelectTrigger>
+                    <SelectContent className="rounded-xl">
+                      {calculator.service === 'railway' && (
+                        <>
+                          <SelectItem value="Москва">Москва</SelectItem>
+                          <SelectItem value="СПб">Санкт-Петербург</SelectItem>
+                          <SelectItem value="Новосибирск">Новосибирск</SelectItem>
+                          <SelectItem value="Челябинск">Челябинск</SelectItem>
+                          <SelectItem value="Тюмень">Тюмень</SelectItem>
+                        </>
+                      )}
+                      {calculator.service === 'auto' && (
+                        <>
+                          <SelectItem value="Челябинск">Челябинск</SelectItem>
+                          <SelectItem value="Тюмень">Тюмень</SelectItem>
+                          <SelectItem value="Пермь">Пермь</SelectItem>
+                          <SelectItem value="Курган">Курган</SelectItem>
+                        </>
+                      )}
+                      {calculator.service === 'loaders' && (
+                        <SelectItem value="Екатеринбург">Екатеринбург</SelectItem>
+                      )}
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-3">
+                  <label className="block text-lg font-semibold text-primary-800 mb-3">Вес груза (кг)</label>
+                  <Input 
+                    type="number" 
+                    placeholder="100"
+                    value={calculator.weight}
+                    onChange={(e) => setCalculator(prev => ({ ...prev, weight: e.target.value }))}
+                    className="h-14 text-lg rounded-xl border-2 border-primary-200 focus:border-primary-500 bg-white"
+                  />
                 </div>
                 
+                <div className="space-y-3">
+                  <label className="block text-lg font-semibold text-primary-800 mb-3">Объем груза (м³)</label>
+                  <Input 
+                    type="number" 
+                    placeholder="1.5"
+                    value={calculator.volume}
+                    onChange={(e) => setCalculator(prev => ({ ...prev, volume: e.target.value }))}
+                    className="h-14 text-lg rounded-xl border-2 border-primary-200 focus:border-primary-500 bg-white"
+                  />
+                </div>
+              </div>
+              
+              <div className="text-center pt-4">
                 <Button 
                   onClick={calculatePrice}
-                  size="lg" 
-                  className="bg-[#DC2626] hover:bg-[#B91C1C] w-full"
+                  className="bg-primary-600 hover:bg-primary-700 px-16 py-6 text-xl font-bold rounded-xl shadow-medium hover:shadow-strong transition-all duration-300 transform hover:scale-105"
                 >
+                  <Icon name="Calculator" className="mr-4" size={24} />
                   Рассчитать стоимость
                 </Button>
-                
-                {calculator.result && (
-                  <div className="mt-6 p-6 bg-green-50 rounded-lg border border-green-200">
-                    <div className="text-center">
-                      <h3 className="text-lg font-semibold text-green-800 mb-2">Ориентировочная стоимость</h3>
-                      <p className="text-3xl font-bold text-green-600">{calculator.result.toLocaleString()} ₽</p>
-                      <p className="text-sm text-green-700 mt-2">*Окончательная стоимость уточняется при оформлении заявки</p>
-                    </div>
-                  </div>
-                )}
               </div>
-            </Card>
-          </div>
+              
+              {calculator.result && (
+                <div className="bg-gradient-to-r from-primary-50 to-accent-50 p-8 rounded-2xl border border-primary-200">
+                  <h3 className="text-2xl font-bold text-primary-800 mb-6 text-center">Предварительная стоимость:</h3>
+                  <div className="text-center">
+                    <div className="text-5xl font-black text-primary-600 mb-3">{calculator.result.toLocaleString()} ₽</div>
+                    <p className="text-lg text-secondary-600 font-medium">*Точную стоимость уточняйте у менеджера</p>
+                  </div>
+                </div>
+              )}
+            </CardContent>
+          </Card>
         </div>
       </section>
 
