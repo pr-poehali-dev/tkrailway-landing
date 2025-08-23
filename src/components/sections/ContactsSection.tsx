@@ -18,33 +18,39 @@ export function ContactsSection() {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-6xl mx-auto">
-          {/* Contact Form */}
+          {/* AI Agent Widget */}
           <Card className="p-8">
             <CardHeader className="px-0 pt-0">
-              <CardTitle className="text-xl text-[#374151]">Отправить заявку</CardTitle>
+              <CardTitle className="text-xl text-[#374151]">ИИ помощник</CardTitle>
+              <p className="text-sm text-gray-600 mt-2">
+                Задайте вопрос нашему ИИ агенту о доставке и получите мгновенный ответ
+              </p>
             </CardHeader>
-            <CardContent className="px-0 space-y-4">
-              <form role="form" aria-label="Форма обратной связи">
-                <div>
-                  <label className="block text-sm font-medium text-[#374151] mb-2" htmlFor="name">Ваше имя *</label>
-                  <Input id="name" name="name" placeholder="Введите ваше имя" required aria-required="true" />
+            <CardContent className="px-0">
+              <div 
+                id="ai-widget-container" 
+                className="min-h-[400px] w-full bg-gray-50 rounded-lg flex items-center justify-center"
+              >
+                <div className="text-center">
+                  <div className="animate-pulse mb-4">
+                    <div className="w-12 h-12 bg-blue-200 rounded-full mx-auto mb-3"></div>
+                    <div className="h-4 bg-blue-200 rounded w-32 mx-auto"></div>
+                  </div>
+                  <p className="text-sm text-gray-500">Загружается ИИ помощник...</p>
                 </div>
-                <div>
-                  <label className="block text-sm font-medium text-[#374151] mb-2" htmlFor="phone">Телефон *</label>
-                  <Input id="phone" name="phone" type="tel" placeholder="+7 (___) ___-__-__" required aria-required="true" />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-[#374151] mb-2" htmlFor="email">Email</label>
-                  <Input id="email" name="email" type="email" placeholder="example@mail.ru" />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-[#374151] mb-2" htmlFor="message">Сообщение</label>
-                  <Textarea id="message" name="message" placeholder="Опишите ваш груз и требования к доставке" rows={4} />
-                </div>
-                <Button type="submit" className="bg-[#DC2626] hover:bg-[#B91C1C] w-full" size="lg">
-                  Отправить заявку
-                </Button>
-              </form>
+              </div>
+              <script
+                dangerouslySetInnerHTML={{
+                  __html: `
+                    !function(){
+                        const b=document.createElement("script");
+                        b.src="https://functions.pro-talk.ru/api/v1.0/get_dialog_ai_widget_api?record_id=recw5raC8WUIi7BSO&promt_id=33318&lang=ru&fullscreen=0&voice=1&file=1&circle=1";
+                        b.setAttribute("allow","autoplay");
+                        document.head.appendChild(b);
+                    }();
+                  `
+                }}
+              />
             </CardContent>
           </Card>
           
