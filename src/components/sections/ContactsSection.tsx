@@ -6,18 +6,18 @@ import Icon from '@/components/ui/icon';
 
 export function ContactsSection() {
   return (
-    <section id="contacts" className="py-20 px-4 bg-gray-50" itemScope itemType="https://schema.org/ContactPage">
+    <section id="contacts" className="py-12 md:py-20 px-4 bg-gray-50" itemScope itemType="https://schema.org/ContactPage">
       <div className="container mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#374151] mb-4">
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-2xl md:text-4xl font-bold text-[#374151] mb-4">
             Готовы начать сотрудничество?
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
             Оставьте заявку или свяжитесь с нами удобным способом
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-6xl mx-auto">
           {/* Contact Form */}
           <Card className="p-8">
             <CardHeader className="px-0 pt-0">
