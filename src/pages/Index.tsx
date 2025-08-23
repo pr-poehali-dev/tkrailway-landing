@@ -17,6 +17,21 @@ function Index() {
     result: null
   });
 
+  const [showTariffModal, setShowTariffModal] = useState(false);
+  const [selectedService, setSelectedService] = useState('');
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleServiceTariff = (service: string) => {
+    setSelectedService(service);
+    setShowTariffModal(true);
+  };
+
   const calculatePrice = () => {
     if (!calculator.service || !calculator.destination || !calculator.weight) {
       return;
@@ -76,10 +91,10 @@ function Index() {
               ЖД перевозки в багажных вагонах, автоперевозки по Уралу, услуги грузчиков. Прозрачные тарифы и расчет онлайн.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-[#DC2626] hover:bg-[#B91C1C] text-white px-8">
+              <Button size="lg" className="bg-[#DC2626] hover:bg-[#B91C1C] text-white px-8" onClick={() => scrollToSection('calculator')}>
                 Рассчитать стоимость за 1 минуту
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-[#1E40AF]">
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-[#1E40AF]" onClick={() => scrollToSection('services')}>
                 Узнать подробнее
               </Button>
             </div>
@@ -118,7 +133,7 @@ function Index() {
                   <li>• Максимальная сохранность</li>
                   <li>• Широкая география</li>
                 </ul>
-                <Button className="bg-[#1E40AF] hover:bg-[#1E3A8A] w-full">
+                <Button className="bg-[#1E40AF] hover:bg-[#1E3A8A] w-full" onClick={() => handleServiceTariff('railway')}>
                   Узнать тарифы
                 </Button>
               </CardContent>
@@ -142,7 +157,7 @@ function Index() {
                   <li>• Гибкие маршруты</li>
                   <li>• Выгодные тарифы</li>
                 </ul>
-                <Button className="bg-[#DC2626] hover:bg-[#B91C1C] w-full">
+                <Button className="bg-[#DC2626] hover:bg-[#B91C1C] w-full" onClick={() => handleServiceTariff('auto')}>
                   Узнать тарифы
                 </Button>
               </CardContent>
@@ -166,7 +181,7 @@ function Index() {
                   <li>• Подъем без лифта</li>
                   <li>• Бережная работа</li>
                 </ul>
-                <Button className="bg-[#F97316] hover:bg-[#EA580C] w-full">
+                <Button className="bg-[#F97316] hover:bg-[#EA580C] w-full" onClick={() => handleServiceTariff('loaders')}>
                   Узнать тарифы
                 </Button>
               </CardContent>
@@ -439,6 +454,122 @@ function Index() {
           </div>
         </div>
       </footer>
+
+      {/* Tariff Modal */}
+      {showTariffModal && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-lg max-w-2xl w-full max-h-[80vh] overflow-y-auto">
+            <div className="p-6 border-b">
+              <div className="flex items-center justify-between">
+                <h2 className="text-2xl font-bold text-[#374151]">
+                  Тарифы на {selectedService === 'railway' ? 'ЖД перевозки' : 
+                            selectedService === 'auto' ? 'автоперевозки' : 
+                            'услуги грузчиков'}
+                </h2>
+                <Button 
+                  variant="ghost" 
+                  size="sm"
+                  onClick={() => setShowTariffModal(false)}
+                >
+                  <Icon name="X" size={24} />
+                </Button>
+              </div>
+            </div>
+            <div className="p-6">
+              {selectedService === 'railway' && (
+                <div className="space-y-4">
+                  <h3 className="text-lg font-semibold">ЖД перевозки из Екатеринбурга</h3>
+                  <div className="grid gap-3">
+                    <div className="flex justify-between p-3 bg-gray-50 rounded">
+                      <span>Москва</span>
+                      <span className="font-semibold">от 1090 ₽</span>
+                    </div>
+                    <div className="flex justify-between p-3 bg-gray-50 rounded">
+                      <span>Санкт-Петербург</span>
+                      <span className="font-semibold">от 1140 ₽</span>
+                    </div>
+                    <div className="flex justify-between p-3 bg-gray-50 rounded">
+                      <span>Новосибирск</span>
+                      <span className="font-semibold">от 1790 ₽</span>
+                    </div>
+                    <div className="flex justify-between p-3 bg-gray-50 rounded">
+                      <span>Челябинск</span>
+                      <span className="font-semibold">от 900 ₽</span>
+                    </div>
+                    <div className="flex justify-between p-3 bg-gray-50 rounded">
+                      <span>Тюмень</span>
+                      <span className="font-semibold">от 1030 ₽</span>
+                    </div>
+                  </div>
+                  <p className="text-sm text-gray-600">*Цены указаны за 10 кг груза</p>
+                </div>
+              )}
+              
+              {selectedService === 'auto' && (
+                <div className="space-y-4">
+                  <h3 className="text-lg font-semibold">Автоперевозки из Екатеринбурга</h3>
+                  <div className="grid gap-3">
+                    <div className="flex justify-between p-3 bg-gray-50 rounded">
+                      <span>Челябинск</span>
+                      <span className="font-semibold">от 500 ₽</span>
+                    </div>
+                    <div className="flex justify-between p-3 bg-gray-50 rounded">
+                      <span>Тюмень</span>
+                      <span className="font-semibold">от 800 ₽</span>
+                    </div>
+                    <div className="flex justify-between p-3 bg-gray-50 rounded">
+                      <span>Пермь</span>
+                      <span className="font-semibold">от 600 ₽</span>
+                    </div>
+                    <div className="flex justify-between p-3 bg-gray-50 rounded">
+                      <span>Курган</span>
+                      <span className="font-semibold">от 450 ₽</span>
+                    </div>
+                  </div>
+                  <p className="text-sm text-gray-600">*Цены указаны за 10 кг груза</p>
+                </div>
+              )}
+              
+              {selectedService === 'loaders' && (
+                <div className="space-y-4">
+                  <h3 className="text-lg font-semibold">Услуги грузчиков</h3>
+                  <div className="grid gap-3">
+                    <div className="flex justify-between p-3 bg-gray-50 rounded">
+                      <span>Подъем на этаж (с лифтом)</span>
+                      <span className="font-semibold">150 ₽/час</span>
+                    </div>
+                    <div className="flex justify-between p-3 bg-gray-50 rounded">
+                      <span>Подъем на этаж (без лифта)</span>
+                      <span className="font-semibold">200 ₽/час</span>
+                    </div>
+                    <div className="flex justify-between p-3 bg-gray-50 rounded">
+                      <span>Подъем тяжелой мебели</span>
+                      <span className="font-semibold">250 ₽/час</span>
+                    </div>
+                    <div className="flex justify-between p-3 bg-gray-50 rounded">
+                      <span>Сборка/разборка</span>
+                      <span className="font-semibold">300 ₽/час</span>
+                    </div>
+                  </div>
+                  <p className="text-sm text-gray-600">*Минимальный заказ 2 часа</p>
+                </div>
+              )}
+              
+              <div className="mt-6 pt-4 border-t">
+                <Button 
+                  className="bg-[#DC2626] hover:bg-[#B91C1C] w-full"
+                  onClick={() => {
+                    setShowTariffModal(false);
+                    scrollToSection('contacts');
+                  }}
+                >
+                  Заказать услугу
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
