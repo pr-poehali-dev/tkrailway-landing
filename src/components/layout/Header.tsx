@@ -11,7 +11,7 @@ export function Header() {
           <div className="flex items-center gap-2 md:gap-3">
             <img 
               src="https://cdn.poehali.dev/files/b96bb81d-9143-4759-9a42-23d0ec0770e1.jpeg" 
-              alt="ТК Реилвей" 
+              alt="ТК РЕИЛВЕЙ - Транспортная компания Екатеринбург логотип" 
               className="w-10 h-10 md:w-12 md:h-12 rounded-xl object-contain bg-white"
             />
             <div>
