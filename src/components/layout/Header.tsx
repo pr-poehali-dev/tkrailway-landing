@@ -12,7 +12,7 @@ export function Header() {
             <img 
               src="https://cdn.poehali.dev/files/b96bb81d-9143-4759-9a42-23d0ec0770e1.jpeg" 
               alt="ТК РЕИЛВЕЙ - Транспортная компания Екатеринбург логотип" 
-              className="w-10 h-10 md:w-12 md:h-12 rounded-xl object-contain bg-white"
+              className="w-20 h-20 md:w-24 md:h-24 rounded-xl object-contain bg-white"
             />
             <div>
               <h1 className="text-lg md:text-2xl font-black text-primary-800">РЕИЛВЕЙ</h1>
