@@ -11,12 +11,12 @@ export function HeroSection({ onCalculatorClick, onServicesClick }: HeroSectionP
   return (
     <section className="py-24 px-4 relative overflow-hidden animate-fade-in" itemScope itemType="https://schema.org/Organization">
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat md:bg-center sm:bg-right"
         style={{
           backgroundImage: `url('https://cdn.poehali.dev/files/71d0be27-238e-4eb2-a1db-e2f973bd7a4f.png')`
         }}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80 md:from-black/60 md:via-black/50 md:to-black/70"></div>
       <div className="container mx-auto text-center relative z-10">
         <div className="max-w-6xl mx-auto">
           <Badge className="mb-8 bg-white/20 text-white border-white/30 backdrop-blur-sm px-6 py-2 text-lg font-medium">
